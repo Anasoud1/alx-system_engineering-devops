@@ -1,1 +1,7 @@
-My readme file
+#My readme file
+
+* first
+* second 
+* third
+
+*conclusion*
