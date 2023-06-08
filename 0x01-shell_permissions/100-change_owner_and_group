@@ -1,2 +1,2 @@
 #!/bin/bash
-sudoedit -u vincent -g staff
+sudoedit -u vincent -g staff .
