@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo -u vincent -g staff .
+sudo chown vincent:staff .
