@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-for _ in $(seq 10); do echo "Best School"; done
+# for _ in $(seq 10); do echo "Best School"; done
