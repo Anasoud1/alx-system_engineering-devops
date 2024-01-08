@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# script that configures a new Ubuntu machine to Perform a 301-redirection
+# configures a brand new Ubuntu machine
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
