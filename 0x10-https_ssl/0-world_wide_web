@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Bash script that will display information about subdomains.
+
+domain_info () {
+	line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+	echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+}
+list=("www" "lb-01" "web-01" "web-02")
+if [ "$#" == 1 ]; then
+	for element in "${list[@]}"; do
+		domain_info "$1" "$element"
+	done
+elif [ "$#" == 2 ]; then
+	for element in "${list[@]}"; do
+        	if [ "$element" == "$2" ]; then
+            		domain_info "$1" "$2"
+            		break
+        	fi
+    	done
+fi
