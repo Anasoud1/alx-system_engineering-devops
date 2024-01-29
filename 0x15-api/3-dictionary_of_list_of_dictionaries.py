@@ -19,11 +19,11 @@ if __name__ == "__main__":
     todo_json = todo_response.json()
     users = user_response.json()
 
-    list_dic = []
     dic = {}
 
     with open("todo_all_employees.json", "w") as file:
         for user in users:
+            list_dic = []
             for todo in todo_json:
                 list_dic.append(
                     {
