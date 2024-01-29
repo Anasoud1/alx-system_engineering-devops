@@ -11,14 +11,13 @@ import sys
 if __name__ == "__main__":
     employee_id = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com"
-    todo_url = url + "/todos"
+    todo_url = url + "/user/{}/todos".format(employee_id)
     user_url = url + "/users/{}".format(employee_id)
 
     user_response = requests.get(user_url)
-    user = user_response.json()
-    username = user.get('name')
+    username = user_response.json().get('username')
 
-    todo_response = requests.get(todo_url, params={"userId": employee_id})
+    todo_response = requests.get(todo_url)
     todo_json = todo_response.json()
 
     with open(f"{employee_id}.csv", "w") as file:
