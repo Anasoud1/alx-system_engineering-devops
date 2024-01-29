@@ -14,20 +14,19 @@ if __name__ == "__main__":
     user_url = url + "/users/{}".format(employee_id)
 
     user_response = requests.get(user_url)
-    user_json = user_response.json()
+    user = user_response.json()
 
     todo_response = requests.get(todo_url, params={"userId": employee_id})
     todo_json = todo_response.json()
-    done = 0
-    all_todo = len(todo_json)
+
+    completed = []
 
     for todo in todo_json:
         if todo.get("completed") is True:
-            done += 1
+            completed.append(todo.get('title'))
 
-    print("Employee {} is done with tasks({}/{}):".format(user_json.get('name'),
-          done, all_todo))
+    print("Employee {} is done with tasks({}/{}):".format(user.get('name'),
+          len(completed), len(todo_json)))
 
-    for todo in todo_json:
-        if todo.get("completed") is True:
-            print("\t {}".format(todo.get('title')))
+    for c in completed:
+        print("\t {}".format(c))
