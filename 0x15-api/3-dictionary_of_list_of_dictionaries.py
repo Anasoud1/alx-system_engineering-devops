@@ -25,11 +25,12 @@ if __name__ == "__main__":
         for user in users:
             list_dic = []
             for todo in todo_json:
-                list_dic.append(
-                    {
-                        'username': user.get('username'),
-                        'task': todo.get('title'),
-                        'completed': todo.get('completed'),
-                    })
+                if user.get('id') == todo.get('userId'):
+                    list_dic.append(
+                        {
+                            'username': user.get('username'),
+                            'task': todo.get('title'),
+                            'completed': todo.get('completed'),
+                        })
             dic[user.get('id')] = list_dic
         json.dump(dic, file)
