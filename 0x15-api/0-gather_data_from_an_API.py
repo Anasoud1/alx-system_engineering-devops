@@ -22,12 +22,12 @@ if __name__ == "__main__":
     all_todo = len(todo_json)
 
     for todo in todo_json:
-        if todo["completed"] is True:
+        if todo.get("completed") is True:
             done += 1
 
-    print("Employee {} is done with tasks({}/{}):".format(user_json['name'],
+    print("Employee {} is done with tasks({}/{}):".format(user_json.get('name'),
           done, all_todo))
 
     for todo in todo_json:
-        if todo["completed"] is True:
-            print("\t {}".format(todo['title']))
+        if todo.get("completed") is True:
+            print("\t {}".format(todo.get('title')))
