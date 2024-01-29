@@ -30,9 +30,9 @@ if __name__ == "__main__":
     for all_Emp in json_req:
         totalTasks.append(
             {
+                "username": usr,
                 "task": all_Emp.get('title'),
                 "completed": all_Emp.get('completed'),
-                "username": usr,
             })
     updateUser[idEmp] = totalTasks
 
