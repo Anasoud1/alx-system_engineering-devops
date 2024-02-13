@@ -7,6 +7,8 @@ import requests
 
 def number_of_subscribers(subreddit):
     """returns the number of subscribers"""
+    if subreddit is None:
+        return (0)
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
     headers = {'User-Agent': 'Google Chrome Version 123.0.6286.0'}
     response = requests.get(url, headers=headers)
